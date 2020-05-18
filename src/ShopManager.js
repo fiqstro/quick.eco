@@ -21,16 +21,16 @@ class ShopManager extends Array {
      */
     registerItem(itemName, itemInfo = {}) {
         if(typeof itemName !== "string") throw new TypeError("Item name must be a string.");
-        if(typeof itemInfo !== "object") throw new TypeError("Item info(s) must be a string.");
+        if(typeof itemInfo !== "object") throw new TypeError("Item info(s) must be an object.");
         const name = itemName || itemInfo.name;
         if(!name) throw new TypeError("Item name was not provided.");
         const cost = itemInfo.cost || itemInfo.price;
-        if(!cost || typeof cost !== "number") throw new TypeError("Item cost must be a number");
+        if(!cost || typeof cost !== "number") throw new TypeError("Item cost must be a number.");
         this.push({
             name, ...itemInfo
         }); // ...itemInfo because user can add excess info about the item
         return this;
-    }
+    };
 
     /**
      * getItem - Fetches an Item from the Shop
